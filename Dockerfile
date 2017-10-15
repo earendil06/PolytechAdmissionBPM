@@ -1,9 +1,3 @@
-FROM tomee:8-jre-7.0.3-plus
-MAINTAINER Sébastien Mosser (mosser@i3s.unice.fr)
-
-# Build with : docker build -t petitroll/holidays .
-# Publish with: docker push petitroll/holidays
-
 WORKDIR /usr/local/tomee/
 
 RUN apt-get  update \
