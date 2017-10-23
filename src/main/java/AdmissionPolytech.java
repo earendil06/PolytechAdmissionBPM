@@ -1,4 +1,5 @@
-package org.flowable;
+import models.NumerusClausus;
+import org.flowable.AbstractProcess;
 
 import java.util.Scanner;
 
@@ -13,13 +14,14 @@ public class AdmissionPolytech extends AbstractProcess {
         this.scanner = new Scanner(System.in);
     }
 
-    private void definirPlaces() {
-        System.out.println("Quelle est la note minimale ?");
-        int nb = Integer.parseInt(scanner.nextLine());
+    private void definePlaces() {
+        NumerusClausus numerus = new NumerusClausus(100);
+        AdmissionParameters.getInstance().setPlaces(numerus);
     }
 
 
     public void execute() {
-        definirPlaces();
+        definePlaces();
+
     }
 }
