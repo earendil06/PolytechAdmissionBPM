@@ -26,7 +26,9 @@ public abstract class AbstractProcess implements IFlowableProcess {
 
     }
 
-    public abstract void execute();
+    public abstract boolean isCompleted();
+
+    public abstract void process();
 
     public ProcessEngine getProcessEngine() {
         return this.processEngine;

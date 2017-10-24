@@ -1,8 +1,11 @@
+package processes.numerusClausus;
+
 import org.flowable.engine.delegate.DelegateExecution;
 import org.flowable.engine.delegate.JavaDelegate;
 
-public class CheckCandidateMark implements JavaDelegate {
+public class NotifyRequestRejected implements JavaDelegate {
+    @Override
     public void execute(DelegateExecution delegateExecution) {
-        System.out.println("dossier complet, on check la note");
+        System.out.println("Proposal rejected");
     }
 }

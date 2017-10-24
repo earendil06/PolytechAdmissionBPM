@@ -2,16 +2,16 @@
 <definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
   <process id="manageCandidates" name="Traiter les dossiers" isExecutable="true">
     <startEvent id="startEvent1"></startEvent>
-    <serviceTask id="sid-E54F4CEA-60AE-4489-B053-DF694BFF9D13" name="Vérifier la recevabilité du dossier" flowable:class="CheckCandidateOK"></serviceTask>
+    <userTask id="sid-E54F4CEA-60AE-4489-B053-DF694BFF9D13" name="Vérifier la recevabilité du dossier" flowable:candidateGroups="polytech"></userTask>
     <sequenceFlow id="sid-4FA74CCD-253E-4BE5-9146-3F7A3C7838C9" sourceRef="startEvent1" targetRef="sid-E54F4CEA-60AE-4489-B053-DF694BFF9D13"></sequenceFlow>
     <exclusiveGateway id="sid-F3E358E8-8A43-4532-9EF1-7F598B9EE090"></exclusiveGateway>
     <sequenceFlow id="sid-FF53C419-BC49-4452-8405-4C83BB687836" sourceRef="sid-E54F4CEA-60AE-4489-B053-DF694BFF9D13" targetRef="sid-F3E358E8-8A43-4532-9EF1-7F598B9EE090"></sequenceFlow>
-    <serviceTask id="sid-2416FE42-CF65-4FE8-8396-A91E30E68A7D" name="Enregistrer le dossier" flowable:class="CheckCandidateMark"></serviceTask>
+    <serviceTask id="sid-2416FE42-CF65-4FE8-8396-A91E30E68A7D" name="Enregistrer le dossier" flowable:class="processes.manageCandidates.SaveCandidatureDatabase"></serviceTask>
     <sequenceFlow id="sid-42B390DE-C7BF-413B-ADE4-34EF1079BA42" sourceRef="sid-F3E358E8-8A43-4532-9EF1-7F598B9EE090" targetRef="sid-2416FE42-CF65-4FE8-8396-A91E30E68A7D">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${recevable}]]></conditionExpression>
     </sequenceFlow>
     <serviceTask id="sid-23E20FE9-6D91-4265-92DF-51C4578C0A5D" name="Notifier le candidat de l'échec"
-                 flowable:class="NotifyCandidateFail"></serviceTask>
+                 flowable:class="processes.common.NotifyCandidateFail"></serviceTask>
     <sequenceFlow id="sid-CF9E384B-7B3F-42D8-BDEF-33EDF11F1B9B" sourceRef="sid-F3E358E8-8A43-4532-9EF1-7F598B9EE090" targetRef="sid-23E20FE9-6D91-4265-92DF-51C4578C0A5D">
       <conditionExpression xsi:type="tFormalExpression"><![CDATA[${!recevable}]]></conditionExpression>
     </sequenceFlow>

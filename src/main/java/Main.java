@@ -1,16 +1,22 @@
 import org.flowable.IFlowableProcess;
 import org.flowable.engine.ProcessEngines;
-import processes.ManageCandidates;
+import processes.Role;
+import processes.minimumMark.MinimumMarkProcess;
+import processes.numerusClausus.DefineNumerusClaususProcess;
+import processes.manageCandidates.ManageCandidatesProcess;
+
+import java.util.Scanner;
+
 
 public class Main {
 
-    private static final String PROCESS_DEFINITION_KEY = "admissionPolytech";
-    private static final String RESOURCE_XML = "Traiter_les_dossiers.bpmn20.xml";
-
     public static void main(String[] args) {
-        IFlowableProcess process = new ManageCandidates(RESOURCE_XML);
-        process.execute();
+        IFlowableProcess process1 = new DefineNumerusClaususProcess();
+        process1.execute();
+        IFlowableProcess process2 = new ManageCandidatesProcess();
+        process2.execute();
+        IFlowableProcess process3 = new MinimumMarkProcess();
+        process3.execute();
         ProcessEngines.destroy();
     }
-
 }

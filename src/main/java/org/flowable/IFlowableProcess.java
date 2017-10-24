@@ -3,6 +3,14 @@ package org.flowable;
 import org.flowable.engine.ProcessEngine;
 
 public interface IFlowableProcess {
-    void execute();
+    default void execute(){
+        while (!isCompleted()){
+            process();
+        }
+    }
+
+    void process();
+
+    boolean isCompleted();
     ProcessEngine getProcessEngine();
 }
