@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+    <process id="manageMeetings" name="manageMeetings" isExecutable="true">
+        <sequenceFlow id="sid-47D0961E-1C72-45FD-B1E8-B60DC40463FE" sourceRef="startEvent1" targetRef="sid-5E7D218C-3326-48C6-B36C-120FD36A6C10"></sequenceFlow>
+        <sequenceFlow id="sid-367808A7-EED4-49CC-842D-00BD7756664B" sourceRef="sid-5E7D218C-3326-48C6-B36C-120FD36A6C10" targetRef="sid-C133E4B6-82B8-48BE-906B-0D967A28B236"></sequenceFlow>
+        <startEvent id="startEvent1"></startEvent>
+        <userTask id="sid-5E7D218C-3326-48C6-B36C-120FD36A6C10" name="Definir les creneaux" flowable:candidateGroups="polytech"></userTask>
+        <serviceTask id="sid-C133E4B6-82B8-48BE-906B-0D967A28B236" name="Notifier les candidats pour la prise de rdv" flowable:class="processes.meetingManager.NotifyAllCandidatesForMeeting"></serviceTask>
+        <endEvent id="sid-7E13EDD7-3F59-456C-BC7F-DB9D0A097FDA"></endEvent>
+        <sequenceFlow id="sid-3E6E7152-E67A-4756-ADF8-991D8FB7702B" sourceRef="sid-C133E4B6-82B8-48BE-906B-0D967A28B236" targetRef="sid-7E13EDD7-3F59-456C-BC7F-DB9D0A097FDA"></sequenceFlow>
+    </process>
+    <bpmndi:BPMNDiagram id="BPMNDiagram_manageMeetings">
+        <bpmndi:BPMNPlane bpmnElement="manageMeetings" id="BPMNPlane_manageMeetings">
+            <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+                <omgdc:Bounds height="30.0" width="30.0" x="135.0" y="240.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-5E7D218C-3326-48C6-B36C-120FD36A6C10" id="BPMNShape_sid-5E7D218C-3326-48C6-B36C-120FD36A6C10">
+                <omgdc:Bounds height="80.0" width="100.0" x="510.0" y="360.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-C133E4B6-82B8-48BE-906B-0D967A28B236" id="BPMNShape_sid-C133E4B6-82B8-48BE-906B-0D967A28B236">
+                <omgdc:Bounds height="80.0" width="100.0" x="755.0" y="375.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="sid-7E13EDD7-3F59-456C-BC7F-DB9D0A097FDA" id="BPMNShape_sid-7E13EDD7-3F59-456C-BC7F-DB9D0A097FDA">
+                <omgdc:Bounds height="28.0" width="28.0" x="900.0" y="401.0"></omgdc:Bounds>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNEdge bpmnElement="sid-3E6E7152-E67A-4756-ADF8-991D8FB7702B" id="BPMNEdge_sid-3E6E7152-E67A-4756-ADF8-991D8FB7702B">
+                <omgdi:waypoint x="855.0" y="415.0"></omgdi:waypoint>
+                <omgdi:waypoint x="900.0" y="415.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-47D0961E-1C72-45FD-B1E8-B60DC40463FE" id="BPMNEdge_sid-47D0961E-1C72-45FD-B1E8-B60DC40463FE">
+                <omgdi:waypoint x="165.0" y="255.0"></omgdi:waypoint>
+                <omgdi:waypoint x="560.0" y="255.0"></omgdi:waypoint>
+                <omgdi:waypoint x="560.0" y="360.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+            <bpmndi:BPMNEdge bpmnElement="sid-367808A7-EED4-49CC-842D-00BD7756664B" id="BPMNEdge_sid-367808A7-EED4-49CC-842D-00BD7756664B">
+                <omgdi:waypoint x="610.0" y="400.0"></omgdi:waypoint>
+                <omgdi:waypoint x="682.5" y="400.0"></omgdi:waypoint>
+                <omgdi:waypoint x="682.5" y="415.0"></omgdi:waypoint>
+                <omgdi:waypoint x="755.0" y="415.0"></omgdi:waypoint>
+            </bpmndi:BPMNEdge>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+</definitions>

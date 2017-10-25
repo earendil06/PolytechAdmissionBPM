@@ -1,6 +1,7 @@
 import org.flowable.IFlowableProcess;
 import org.flowable.engine.ProcessEngines;
 import processes.Role;
+import processes.meetingManager.MeetingManagerProcess;
 import processes.minimumMark.MinimumMarkProcess;
 import processes.numerusClausus.DefineNumerusClaususProcess;
 import processes.manageCandidates.ManageCandidatesProcess;
@@ -17,6 +18,8 @@ public class Main {
         process2.execute();
         IFlowableProcess process3 = new MinimumMarkProcess();
         process3.execute();
+        IFlowableProcess process4 = new MeetingManagerProcess();
+        process4.execute();
         ProcessEngines.destroy();
     }
 }
