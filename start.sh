@@ -1,1 +1,1 @@
-docker run -p8080:8080 earendil06/admission-polytech
+docker run earendil06/admission-polytech
