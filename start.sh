@@ -1,1 +1,2 @@
-docker run earendil06/admission-polytech
+#!/usr/bin/env bash
+docker run --name PolytechAdmissionBPM earendil06/admission-polytech
