@@ -1,0 +1,52 @@
+-	Décision du nombre de places :
+	= Boucle 'non' n'existe pas vraiment => mettre le non en pointillés car c'est un cas très rare.
+
+	= Traiter la demande est faite au niveau des responsables des admissions au niveau du réseau polytech
+	
+	= Echange : 2 réunions en septembre puis envoie de mails.
+
+	= Changer Polytech-Nice en Polytech-Nice-Sophia
+
+-	Traitement des dossiers :
+	= Les candidats ont un suivi, ils voient que le dossier a été validé.
+
+	= Chaque candidats se doit de signaler s'il y a un problème.
+
+	= Les notes sont saisites à la main.
+
+	= Ensuite on saisi une note gloabale, puis on fixe la barre.
+
+	= Changer en Admissible au lieu d'accepté.
+
+-	Oragnisation des entretiens
+	= Si les candidats ne choisissent pas de voeux ils ne peuvent pas prendre de RDV.
+
+	= PRECISER LA SIGNIFICATION DES ENVELOPPES (c'est le logiciel qui gère c'est pas mails, ambiguité).
+
+	= Possible entretien skype, ex: DUT en semestre 4 à l'étranger.
+
+	= Prevoir d'ajouter les taches : Acceuillir les candidats, réserver les salles d'entretiens, préparer les apperitifs
+
+-	Publier les résultats :
+
+	= Fiche d'évaluation donné par le réseau Polytech pour définir les notes éliminatoires.
+
+	= Notes insuffisantes/suffisantes n'existent pas.
+
+	= Hors classement préparatoire aux grandes écoles.
+
+	= Aucune barre d'admission, tous les candidats non éliminés à l'entretien sont classés puis ça dépends ensuite du nombre de places disponible.
+
+-	KPI
+
+	= Pas de perte car le candidat a un suivi live et peut faire remonter les problème s'il y en a.
+
+	= En cas de soucis, enquête interne par rechercher où à pu passer un dossier disparu par exemple.
+
+	= On connait le nombre de dossiers de candidats, cependant il sont du réseau Polytech, pas du réseau Nice-Sophia spécifiquement.
+
+	= Environ 50% des dosier arrivent les 3 derniers jours.
+
+	= Risque de perte pour les compléments de dossier qui est pas géré par l'app.
+
+	= Les candidats étrangers passent par Campus-France et leurs dossiers sont dématérialisées (fichier PDF).
