@@ -1,11 +1,11 @@
-package processes.numerusClausus;
+package processes.meetingManager;
 
 import org.flowable.engine.delegate.DelegateExecution;
 import org.flowable.engine.delegate.JavaDelegate;
 
-public class NotifyRequestRejected implements JavaDelegate {
+public class AskForStudents implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) {
-        System.out.println("Proposal rejected");
+        System.out.println("ask for all students");
     }
 }

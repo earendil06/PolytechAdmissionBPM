@@ -7,6 +7,6 @@ import processes.AdmissionVariables;
 public class NotifyAllCandidatesForMeeting implements JavaDelegate {
     @Override
     public void execute(DelegateExecution delegateExecution) {
-        AdmissionVariables.getInstance().getCandidatures().forEach(c -> System.out.println("Notify " + c.getName() + " to choose a date"));
+        //AdmissionVariables.getInstance().getApplications().forEach(c -> System.out.println("Notify " + c.getName() + " to choose a date"));
     }
 }

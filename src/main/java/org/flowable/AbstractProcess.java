@@ -2,6 +2,7 @@ package org.flowable;
 
 import org.flowable.engine.*;
 import org.flowable.engine.impl.cfg.StandaloneProcessEngineConfiguration;
+import org.flowable.engine.task.Task;
 
 public abstract class AbstractProcess implements IFlowableProcess {
 
@@ -23,7 +24,6 @@ public abstract class AbstractProcess implements IFlowableProcess {
         repositoryService.createDeployment()
                 .addClasspathResource(xmlFile)
                 .deploy();
-
     }
 
     public abstract boolean isCompleted();

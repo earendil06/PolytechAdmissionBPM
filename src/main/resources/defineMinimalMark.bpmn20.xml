@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:flowable="http://flowable.org/bpmn" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" typeLanguage="http://www.w3.org/2001/XMLSchema" expressionLanguage="http://www.w3.org/1999/XPath" targetNamespace="http://www.flowable.org/processdef">
+  <process id="defineMinimalMark" name="defineMinimalMark" isExecutable="true">
+    <startEvent id="startEvent1"></startEvent>
+    <userTask id="sid-A54DB8DF-9C61-441B-8841-FB3845273C73" name="Define the eligibility threshold"></userTask>
+    <sequenceFlow id="sid-211F44A2-5B1E-4B32-9125-24DC22EC5E01" sourceRef="startEvent1" targetRef="sid-A54DB8DF-9C61-441B-8841-FB3845273C73"></sequenceFlow>
+    <sequenceFlow id="sid-79BDF2C8-A158-477A-9570-6EF130B98A26" sourceRef="sid-A54DB8DF-9C61-441B-8841-FB3845273C73" targetRef="sid-91335CC1-D1A3-4493-B759-3A998DD4AE68"></sequenceFlow>
+    <serviceTask id="sid-91335CC1-D1A3-4493-B759-3A998DD4AE68"
+                 name="Filter applications"
+                 flowable:class="processes.minimumMark.FilterApplications"
+                ></serviceTask>
+    <endEvent id="sid-A632BB83-C5F2-4972-BD45-5F45165924EA"></endEvent>
+    <sequenceFlow id="sid-738DB56C-2D0E-4EA9-8B80-30A30DF2A795" sourceRef="sid-91335CC1-D1A3-4493-B759-3A998DD4AE68" targetRef="sid-A632BB83-C5F2-4972-BD45-5F45165924EA"></sequenceFlow>
+  </process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_defineMinimalMark">
+    <bpmndi:BPMNPlane bpmnElement="defineMinimalMark" id="BPMNPlane_defineMinimalMark">
+      <bpmndi:BPMNShape bpmnElement="startEvent1" id="BPMNShape_startEvent1">
+        <omgdc:Bounds height="30.0" width="30.0" x="100.0" y="163.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A54DB8DF-9C61-441B-8841-FB3845273C73" id="BPMNShape_sid-A54DB8DF-9C61-441B-8841-FB3845273C73">
+        <omgdc:Bounds height="80.0" width="100.0" x="175.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-91335CC1-D1A3-4493-B759-3A998DD4AE68" id="BPMNShape_sid-91335CC1-D1A3-4493-B759-3A998DD4AE68">
+        <omgdc:Bounds height="80.0" width="100.0" x="320.0" y="138.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape bpmnElement="sid-A632BB83-C5F2-4972-BD45-5F45165924EA" id="BPMNShape_sid-A632BB83-C5F2-4972-BD45-5F45165924EA">
+        <omgdc:Bounds height="28.0" width="28.0" x="465.0" y="164.0"></omgdc:Bounds>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge bpmnElement="sid-738DB56C-2D0E-4EA9-8B80-30A30DF2A795" id="BPMNEdge_sid-738DB56C-2D0E-4EA9-8B80-30A30DF2A795">
+        <omgdi:waypoint x="420.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="465.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-211F44A2-5B1E-4B32-9125-24DC22EC5E01" id="BPMNEdge_sid-211F44A2-5B1E-4B32-9125-24DC22EC5E01">
+        <omgdi:waypoint x="130.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="175.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge bpmnElement="sid-79BDF2C8-A158-477A-9570-6EF130B98A26" id="BPMNEdge_sid-79BDF2C8-A158-477A-9570-6EF130B98A26">
+        <omgdi:waypoint x="275.0" y="178.0"></omgdi:waypoint>
+        <omgdi:waypoint x="320.0" y="178.0"></omgdi:waypoint>
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</definitions>

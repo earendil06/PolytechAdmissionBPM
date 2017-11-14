@@ -15,95 +15,54 @@ import java.util.Scanner;
 
 public class DefineNumerusClaususProcess extends AbstractProcess {
 
-    private String key = "defineNumerusClausus";
-    private static final String RESOURCE_XML = "Definir_les_places.bpmn20.xml";
+    private static final String RESOURCE_XML = "numerusClausus.bpmn20.xml";
+    private String key = "numerusClausus";
     private Scanner scanner = new Scanner(System.in);
 
     public DefineNumerusClaususProcess() {
         super(RESOURCE_XML);
+        getProcessEngine().getRuntimeService().startProcessInstanceByKey(key);
     }
 
     @Override
     public void process() {
-        switch (chooseARole()){
-            case DIRECTORS:
-                beDirectors();
-                break;
-            case POLYTECH:
-                bePolytech();
-                break;
-        }
-    }
-
-    private Role chooseARole() {
-        System.out.println("Choose a role (DIRECTORS or POLYTECH) :");
-        try {
-            return Role.valueOf(scanner.nextLine());
-        }catch (Exception e){
-            return chooseARole();
-        }
-
+        bePolytech();
+        beDirectors();
     }
 
     @Override
     public boolean isCompleted() {
-        return AdmissionVariables.getInstance().getNumerusClausus() != null;
+        return AdmissionVariables.getInstance().getPlaceNumber() != null;
     }
 
     private void bePolytech() {
-        List<Task> tasks = getProcessEngine().getTaskService().createTaskQuery().taskCandidateGroup(Role.DIRECTORS.getCandidateGroup()).list();
-        if (tasks.size() == 1){
-            System.out.println("You already submitted a request !");
-            return;
-        }
-        System.out.println("Acting as Polytech");
-        System.out.println("Send a numerus clausus request");
-        System.out.println("How many places ?");
-
-        int number = scanner.nextInt();
-
-        RuntimeService runtimeService = getProcessEngine().getRuntimeService();
+        Task t = getProcessEngine().getTaskService().createTaskQuery().singleResult();
         Map<String, Object> variables = new HashMap<>();
 
+        System.out.println("Acting as Polytech Nice Sophia");
+        System.out.println("Send a number places request");
+        System.out.println("How many places ?");
+
+        int number = Integer.parseInt(scanner.nextLine());
+
         variables.put("number", number);
-
-        ProcessInstance inst = runtimeService.startProcessInstanceByKey(key, variables);
-
-        System.out.println("Request successfully sent ! #" + inst.getId());
+        getProcessEngine().getTaskService().complete(t.getId(), variables);
     }
 
     private void beDirectors() {
         System.out.println("Acting as the directors");
-
-        TaskService taskService = getProcessEngine().getTaskService();
-        List<Task> tasks = taskService.createTaskQuery().taskCandidateGroup(Role.DIRECTORS.getCandidateGroup()).list();
-
-        if (tasks.isEmpty()) {
-            System.out.println("You have 0 request to validate !");
-            return;
-        }
-
-        System.out.println("You have " + tasks.size() + " requests :");
-
-        for (int i = 0; i < tasks.size(); i++) {
-            System.out.println((i+1) + ") request #" + tasks.get(i).getProcessInstanceId());
-        }
-
-        System.out.println("Which task would you like to process ?");
-
-        int taskIndex = Integer.valueOf(scanner.nextLine());
-
-        Task task = tasks.get(taskIndex - 1);
-        Map<String, Object> processVariables = taskService.getVariables(task.getId());
-
-        System.out.println("Polytech'Nice wants " +
-                processVariables.get("number") + " of places. Do you approve this? (y/n)");
+        Task t = getProcessEngine().getTaskService().createTaskQuery().singleResult();
+        Map<String, Object> processVariables = getProcessEngine().getTaskService().getVariables(t.getId());
+        int number = (int) processVariables.get("number");
+        System.out.println("Polytech Nice Sophia wants " + number + " places.");
+        System.out.println("Do you accept the number ? (y/n)");
 
         boolean approved = scanner.nextLine().toLowerCase().equals("y");
 
         Map<String, Object> variables = new HashMap<>();
         variables.put("approved", approved);
+        getProcessEngine().getTaskService().complete(t.getId(), variables);
 
-        taskService.complete(task.getId(), variables);
+
     }
 }

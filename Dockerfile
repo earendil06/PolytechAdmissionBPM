@@ -1,3 +1,5 @@
+FROM tomee:8-jre-7.0.3-plus
+
 WORKDIR /usr/local/tomee/
 
 RUN apt-get  update \

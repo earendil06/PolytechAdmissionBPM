@@ -1,9 +1,9 @@
 package models;
 
-public class NumerusClausus {
+public class PlaceNumber {
     private int mark;
 
-    public NumerusClausus(int mark) {
+    public PlaceNumber(int mark) {
         this.mark = mark;
     }
 
